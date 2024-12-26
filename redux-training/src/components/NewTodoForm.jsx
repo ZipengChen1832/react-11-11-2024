@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import todoAPI from "../api/todosAPI";
 
 export default function NewTodoForm() {
   const [newTodo, setNewTodo] = React.useState("");
@@ -7,15 +8,18 @@ export default function NewTodoForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "ADD_TODO",
-      payload: {
-        // bad practice, but for now, we will use this
-        id: Math.floor(Math.random() * 1000),
+
+    todoAPI
+      .addTodo({
         title: newTodo,
         completed: false,
-      },
-    });
+      })
+      .then((data) => {
+        dispatch({
+          type: "ADD_TODO",
+          payload: data,
+        });
+      });
   };
 
   return (
