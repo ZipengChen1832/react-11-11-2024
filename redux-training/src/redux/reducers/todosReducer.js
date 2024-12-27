@@ -4,6 +4,8 @@
 //   { id: 3, title: "Learn React Native", completed: false },
 // ];
 
+import todoAPI from "../../api/todosAPI";
+
 export default function todosReducer(state = [], action) {
   const { type, payload } = action;
   switch (type) {
@@ -25,4 +27,41 @@ export default function todosReducer(state = [], action) {
     default:
       return state;
   }
+}
+
+export function fetchTodosAsync() {
+  return async (dispatch) => {
+    const todos = await todoAPI.fetchTodos();
+    dispatch({ type: "SET_TODOS", payload: todos });
+  };
+}
+
+export function addTodoAsync(newTodo) {
+  return async (dispatch) => {
+    const data = await todoAPI.addTodo(newTodo);
+    dispatch({
+      type: "ADD_TODO",
+      payload: data,
+    });
+  };
+}
+
+export function deleteTodoAsync(id) {
+  return async (dispatch) => {
+    await todoAPI.deleteTodo(id);
+    dispatch({
+      type: "DELETE_TODO",
+      payload: id,
+    });
+  };
+}
+
+export function toggleTodoAsync(id, completed) {
+  return async (dispatch) => {
+    await todoAPI.toggleTodo(id, completed);
+    dispatch({
+      type: "TOGGLE_TODO",
+      payload: id,
+    });
+  };
 }

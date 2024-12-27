@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import TodoList from "./components/TodoList";
 import NewTodoForm from "./components/NewTodoForm";
-import { useEffect } from "react";
-import todoAPI from "./api/todosAPI";
+import { fetchTodosAsync } from "./redux/reducers/todosReducer";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -12,9 +11,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    todoAPI.fetchTodos().then((data) => {
-      dispatch({ type: "SET_TODOS", payload: data });
-    });
+    dispatch(fetchTodosAsync());
   }, []);
 
   function toggleTheme() {

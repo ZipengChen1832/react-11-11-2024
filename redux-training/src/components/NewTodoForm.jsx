@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import todoAPI from "../api/todosAPI";
+import { addTodoAsync } from "../redux/reducers/todosReducer";
 
 export default function NewTodoForm() {
   const [newTodo, setNewTodo] = React.useState("");
@@ -9,17 +10,12 @@ export default function NewTodoForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    todoAPI
-      .addTodo({
+    dispatch(
+      addTodoAsync({
         title: newTodo,
         completed: false,
       })
-      .then((data) => {
-        dispatch({
-          type: "ADD_TODO",
-          payload: data,
-        });
-      });
+    );
   };
 
   return (

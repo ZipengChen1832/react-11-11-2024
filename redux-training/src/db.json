@@ -1,14 +1,9 @@
 {
   "todos": [
     {
-      "id": "dcb2",
+      "id": "8369",
       "title": "123",
       "completed": false
-    },
-    {
-      "id": "f91a",
-      "title": "123",
-      "completed": true
     }
   ]
 }
