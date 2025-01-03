@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
+
 import TodoItem from "./TodoItem";
 
 export const genId = (() => {
@@ -15,7 +16,10 @@ const ToDoList = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const newTodo = { id: genId(), todoName: inputValue, completed: false };
+
+
     dispatch({ type: "ADD_TODO", payload: newTodo });
   };
 
@@ -36,14 +40,6 @@ const ToDoList = () => {
 
           <TodoItem key={id} id={id} todoName={todoName} completed={completed}/>
 
-          // <React.Fragment key={id}>
-          //   <div>id: {id}</div>
-          //   <div>name: {todoName}</div>
-          //   <div>
-          //     status: status: {completed ? "completed" : "not completed"}
-          //   </div>
-          //   <button onClick={()=> handleDelete(id)}>Delete</button>
-          // </React.Fragment>
         );
       })}
     </div>
