@@ -1,0 +1,8 @@
+ul.navbar__list {
+  display: flex;
+  list-style-type: none;
+}
+
+li.navbar__list-item {
+    padding: 10px;
+}
