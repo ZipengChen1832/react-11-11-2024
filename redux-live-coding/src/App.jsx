@@ -1,18 +1,21 @@
 import { useState } from "react";
-import TodoList from "./components/TodoList";
 import "./App.css";
 import Counter from "./components/Counter";
 import React from "react";
+import ToDoList from "./components/ToDoList";
+import TodoForm from "./components/TodoForm";
 
 function App() {
   return (
-    <React.Fragment>
-      <div>
-        <h1>Redux</h1>
-
-        <TodoList />
+    <>
+      <div className="todo-wrapper">
+        <div className="todo-list">
+        <h1>TODOLIST</h1>
+        <TodoForm />
+        <ToDoList />
+        </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 
