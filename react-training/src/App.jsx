@@ -30,7 +30,8 @@ function App() {
       {/* <Day7 /> */}
       {/* <Day8 /> */}
       {/* <DayRouter /> */}
-      <Practice />
+      <DayPerformance />
+      {/* <Practice /> */}
     </>
   );
 }
