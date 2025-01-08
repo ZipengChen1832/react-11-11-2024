@@ -11,6 +11,7 @@ import DayPerformance from "./DayPerformance";
 import DayRouter from "./DayRouter";
 import EventListApp from "./EventList";
 import { EventsProvider } from "./EventList/context/EventsContext";
+import Practice from "./practice";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
       {/* <Day7 /> */}
       {/* <Day8 /> */}
       {/* <DayRouter /> */}
-      <DayPerformance />
+      <Practice />
     </>
   );
 }
