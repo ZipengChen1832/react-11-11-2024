@@ -16,7 +16,7 @@ function App() {
           <h1>TODOLIST</h1>
           <TodoForm />
           <Routes>
-            <Route path="/" element={<ToDoList />} /> {/* Home route */}
+            <Route path="/" element={<ToDoList />} />
             <Route path="/todos" element={<IncompleteTodos />} />
             <Route path="/todos/completed" element={<CompletedTodos />} />
           </Routes>
