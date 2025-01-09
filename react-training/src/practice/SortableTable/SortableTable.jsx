@@ -1,8 +1,5 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import fetchDevelopers from "./mockData";
-import { useMemo } from "react";
 
 export default function SortableTable() {
   const [developers, setDevelopers] = useState([]);
