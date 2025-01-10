@@ -16,7 +16,7 @@ export default function SortableTable() {
     return developers.filter((developer) => {
       return developer.age >= minAge;
     });
-  });
+  }, [developers, minAge]);
 
   const sortedDevs = useMemo(() => {
     return [...filteredDevs].sort((dev1, dev2) => {
